@@ -31,3 +31,52 @@ function operate(operator,n1,n2) {
     }
     return resu;
 }
+
+let n1 = 0;
+let n2 = 0;
+let operator = "";
+let screen_update = document.querySelector(".screen");
+let numbers = document.querySelectorAll(".number");
+numbers.forEach((number) => {
+    number.addEventListener('click', () => {
+        if (screen_update.textContent==0 || screen_update.textContent=="") {
+            screen_update.textContent = number.textContent;
+        } else {
+            screen_update.textContent = screen_update.textContent + number.textContent;
+        }
+    })
+})
+
+let operations = document.querySelectorAll(".operation");
+operations.forEach((operation) => {
+    operation.addEventListener('click', (operator,n1,n2) => {
+        if (operator=="") {
+            n1 = screen_update.textContent;
+            operator = operation.textContent;
+            screen_update.textContent = "";
+        } else {
+            n2 = screen_update.textContent;
+            n1 = operate(operator,n1,n2);
+            operator = operation.textContent;
+            screen_update.textContent = "";
+        }
+    })
+})
+
+let enter = document.querySelector(".enter");
+enter.addEventListener('clcik', (operator,n1,n2) => {
+    if (operator=="") {
+        n1 = screen_update.textContent;
+        n2 = 0;
+    } else {
+        screen_update.textContent = operate(operator,n1,n2);
+    }
+})
+
+let clear = document.querySelector(".clear");
+clear.addEventListener('click', (operator,n1,n2) => {
+    screen_update.textContent = 0;
+    n1 = 0;
+    n2 = 0;
+    operator = "";
+})

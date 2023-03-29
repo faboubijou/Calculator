@@ -24,7 +24,8 @@ button {
     background-color: rgb(180, 174, 174);
 }
 
-.number {
+.number,
+.suppr {
     border-radius: 100%;
 }
 
