@@ -24,7 +24,7 @@ function operate(operator,n1,n2) {
         resu = add(n1,n2);
     } else if (operator=="-") {
         resu = substract(n1,n2);
-    } else if (operator=="*") {
+    } else if (operator=="x") {
         resu = multiply(n1,n2);
     } else if (operator=="/") {
         resu = divide(n1,n2);
@@ -64,7 +64,10 @@ operations.forEach((operation) => {
 })
 
 let enter = document.querySelector(".enter");
-enter.addEventListener('clcik', (operator,n1,n2) => {
+enter.addEventListener('click', (operator,n1,n2) => {
+    console.log(n1);
+    console.log(n2);
+    console.log(operator);
     if (operator=="") {
         n1 = screen_update.textContent;
         n2 = 0;
