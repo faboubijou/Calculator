@@ -18,3 +18,16 @@ function divide(n1,n2) {
     }
 }
 
+function operate(operator,n1,n2) {
+    let resu = 0;
+    if (operator=="+") {
+        resu = add(n1,n2);
+    } else if (operator=="-") {
+        resu = substract(n1,n2);
+    } else if (operator=="*") {
+        resu = multiply(n1,n2);
+    } else if (operator=="/") {
+        resu = divide(n1,n2);
+    }
+    return resu;
+}
