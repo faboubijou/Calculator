@@ -1,0 +1,32 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    height: 700px;
+    width: 700px;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+}
+
+.screen {
+    border: solid 2px white;
+    height: 50px;
+    width: 400px;
+    margin-bottom: 20px;
+}
+
+button {
+    height: 50px;
+    width: 50px;
+    background-color: rgb(180, 174, 174);
+}
+
+.number {
+    border-radius: 100%;
+}
+
+.clear,
+.enter {
+    height: 50px;
+    width: 100px;
+}
