@@ -39,8 +39,11 @@ let screen_update = document.querySelector(".screen");
 let numbers = document.querySelectorAll(".number");
 numbers.forEach((number) => {
     number.addEventListener('click', () => {
+        let regex = /[.]/g;
         if (screen_update.textContent==0 || screen_update.textContent=="") {
             screen_update.textContent = number.textContent;
+        } else if (screen_update.textContent.search(regex)!=-1 && number.textContent==".") {
+            console.log("Et non");
         } else {
             screen_update.textContent = screen_update.textContent + number.textContent;
         }
@@ -73,6 +76,7 @@ enter.addEventListener('click', () => {
         screen_update.textContent = operate(operator,n1,n2);
         n1 = screen_update.textContent;
         n2 = 0;
+        operator = 0;
     }
 })
 
@@ -82,4 +86,9 @@ clear.addEventListener('click', () => {
     n1 = 0;
     n2 = 0;
     operator = 0;
+})
+
+let suppr = document.querySelector(".suppr");
+suppr.addEventListener('click', () => {
+    screen_update.textContent = screen_update.textContent.slice(0,-1);
 })
