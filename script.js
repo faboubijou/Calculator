@@ -1,20 +1,20 @@
 function add(n1,n2) {
-    return n1+n2;
+    return Number(n1)+Number(n2);
 }
 
 function substract(n1,n2) {
-    return n1-n2;
+    return Number(n1)-Number(n2);
 }
 
 function multiply(n1,n2) {
-    return n1*n2;
+    return Number(n1)*Number(n2);
 }
 
 function divide(n1,n2) {
     if (n2==0) {
         return "ERROR";
     } else {
-        return n1/n2;
+        return Number(n1)/Number(n2);
     }
 }
 
@@ -34,7 +34,7 @@ function operate(operator,n1,n2) {
 
 let n1 = 0;
 let n2 = 0;
-let operator = "";
+let operator = 0;
 let screen_update = document.querySelector(".screen");
 let numbers = document.querySelectorAll(".number");
 numbers.forEach((number) => {
@@ -49,8 +49,8 @@ numbers.forEach((number) => {
 
 let operations = document.querySelectorAll(".operation");
 operations.forEach((operation) => {
-    operation.addEventListener('click', (operator,n1,n2) => {
-        if (operator=="") {
+    operation.addEventListener('click', () => {
+        if (operator==0) {
             n1 = screen_update.textContent;
             operator = operation.textContent;
             screen_update.textContent = "";
@@ -64,22 +64,22 @@ operations.forEach((operation) => {
 })
 
 let enter = document.querySelector(".enter");
-enter.addEventListener('click', (operator,n1,n2) => {
-    console.log(n1);
-    console.log(n2);
-    console.log(operator);
-    if (operator=="") {
+enter.addEventListener('click', () => {
+    if (operator==0) {
         n1 = screen_update.textContent;
         n2 = 0;
     } else {
+        n2 = screen_update.textContent;
         screen_update.textContent = operate(operator,n1,n2);
+        n1 = screen_update.textContent;
+        n2 = 0;
     }
 })
 
 let clear = document.querySelector(".clear");
-clear.addEventListener('click', (operator,n1,n2) => {
+clear.addEventListener('click', () => {
     screen_update.textContent = 0;
     n1 = 0;
     n2 = 0;
-    operator = "";
+    operator = 0;
 })
